@@ -69,3 +69,35 @@ exports.deleteItem = (req, res) => {
     }
   });
 };
+
+exports.searchItems = (req, res) => {
+    const { name } = req.query;
+    db.all(
+      'SELECT * FROM items WHERE name LIKE ?',
+      [`%${name}%`],
+      (err, rows) => {
+        if (err) {
+          res.status(500).json({ error: err.message });
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  };
+  
+  exports.getAllItems = (req, res) => {
+    const { page = 1, limit = 10 } = req.query;
+    const offset = (page - 1) * limit;
+    db.all(
+      'SELECT * FROM items LIMIT ? OFFSET ?',
+      [parseInt(limit), parseInt(offset)],
+      (err, rows) => {
+        if (err) {
+          res.status(500).json({ error: err.message });
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  };
+  
