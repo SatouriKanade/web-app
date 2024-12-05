@@ -1,0 +1,86 @@
+
+body {
+    background-color: #d8f0fa; 
+    color: #333;
+}
+
+.btn-primary {
+    background-color: #87CEFA; 
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #00BFFF; 
+}
+
+input, textarea {
+    border: 1px solid #87CEFA;
+}
+
+    .container {
+    max-width: 800px;
+}
+
+.card {
+    background-color: #a7e2fd; 
+}
+
+#searchInput {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    background-color: #c6edfc; 
+    border: 1px solid #bad8ff; 
+    border-radius: 8px; 
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-group-item button {
+    margin-left: 10px;
+}
+
+.modal-content {
+    background-color: #f7faff;
+}
+
+h1 {
+    color: #2a9df4; 
+}
+
+.btn {
+    border-radius: 5px;
+}
+
+.form-control {
+    border-radius: 8px;
+}
+
+.edit-btn {
+    background-color: #1880e0; 
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.delete-btn {
+    background-color: #DC143C; 
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.edit-btn:hover {
+    background-color: #44a5ff;
+}
+
+.delete-btn:hover {
+    background-color: #f33838; 
+}  
