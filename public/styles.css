@@ -1,86 +1,73 @@
-
 body {
-    background-color: #d8f0fa; 
-    color: #333;
+    background-color: #f0f8ff;
+    font-family: 'Poppins', sans-serif;
 }
 
-.btn-primary {
-    background-color: #87CEFA; 
-    border: none;
+.container {
+    max-width: 960px;
+    margin: 0 auto;
 }
 
-.btn-primary:hover {
-    background-color: #00BFFF; 
-}
-
-input, textarea {
-    border: 1px solid #87CEFA;
-}
-
-    .container {
-    max-width: 800px;
-}
-
-.card {
-    background-color: #a7e2fd; 
+h1 {
+    color: #005b80; 
+    font-weight: bold;
 }
 
 #searchInput {
     width: 100%;
     max-width: 400px;
     margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 12px;
+    font-size: 16px;
 }
 
 .list-group-item {
-    background-color: #c6edfc; 
-    border: 1px solid #bad8ff; 
-    border-radius: 8px; 
-    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
 }
 
-.list-group-item button {
-    margin-left: 10px;
-}
-
-.modal-content {
-    background-color: #f7faff;
-}
-
-h1 {
-    color: #2a9df4; 
+.list-group-item:hover {
+    background-color: #f0f8ff; 
 }
 
 .btn {
-    border-radius: 5px;
+    border-radius: 20px;
+    padding: 8px 16px;
 }
 
-.form-control {
-    border-radius: 8px;
-}
-
-.edit-btn {
-    background-color: #1880e0; 
+.btn.edit-btn {
+    background-color: #ffc107;
     color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 14px;
 }
 
-.delete-btn {
-    background-color: #DC143C; 
+.btn.delete-btn {
+    background-color: #dc3545;
     color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 14px;
 }
 
-.edit-btn:hover {
-    background-color: #44a5ff;
+.btn:hover {
+    opacity: 0.8;
 }
 
-.delete-btn:hover {
-    background-color: #f33838; 
-}  
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    #searchInput {
+        max-width: 100%;
+    }
+}

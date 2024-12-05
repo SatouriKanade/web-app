@@ -4,38 +4,45 @@ const loadItems = async () => {
         const items = await response.json();
         const itemsList = document.getElementById('items-list');
         itemsList.innerHTML = ''; 
-        
+
         items.forEach(item => {
             const li = document.createElement('li');
-            li.className = 'list-group-item p-2 d-flex justify-content-between align-items-center';
-            li.textContent = `${item.title} - ${item.description || 'No description'}`;
+            li.className = 'bg-white p-4 rounded-lg shadow-md mb-4 flex justify-between items-center';
+
+            const content = document.createElement('div');
+            content.className = 'flex flex-col';
+            content.innerHTML = `
+                <span class="font-semibold text-lg text-blue-600">${item.title}</span>
+                <span class="text-sm text-gray-500">${item.description || 'No description'}</span>
+            `;
+            li.appendChild(content);
 
             const editBtn = document.createElement('button');
-            editBtn.textContent = 'Edit';
-            editBtn.className = 'btn edit-btn ms-2'; 
-            editBtn.addEventListener('click', () => openModal(item)); 
+            editBtn.className = 'bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 focus:outline-none ml-4 flex items-center';
+            editBtn.innerHTML = '<i class="fas fa-edit mr-2"></i>Edit'; 
+            editBtn.addEventListener('click', () => openModal(item));
 
             const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = 'Delete';
-            deleteBtn.className = 'btn delete-btn ms-2';  
+            deleteBtn.className = 'bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none ml-4 flex items-center';
+            deleteBtn.innerHTML = '<i class="fas fa-trash mr-2"></i>Delete';  
             deleteBtn.addEventListener('click', () => deleteItem(item.id));
 
             li.appendChild(editBtn);
             li.appendChild(deleteBtn);
+
             itemsList.appendChild(li);
         });
     } catch (error) {
         console.error('Error fetching items:', error);
     }
 };
-
 const searchItems = () => {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const itemsList = document.getElementById('items-list');
-    const items = itemsList.querySelectorAll('.list-group-item');
+    const items = itemsList.querySelectorAll('li');
 
     items.forEach(item => {
-        const itemName = item.textContent.toLowerCase();
+        const itemName = item.querySelector('.text-lg').textContent.toLowerCase();
         item.style.display = itemName.includes(searchTerm) ? '' : 'none';
     });
 };
@@ -92,6 +99,5 @@ const deleteItem = async (id) => {
         console.error('Error deleting item:', error);
     }
 };
-
 document.getElementById('itemForm').addEventListener('submit', handleItemSubmit);
 window.onload = loadItems;
